@@ -177,7 +177,7 @@ public class RentImlService implements RentService{
         double dep = deposit(ticketBookDTO.getBooks());
 
         Set<Book> returnBooks = ticketBookDTO.getBooks().stream().map(bookDTO -> mapper.map(bookDTO,Book.class)).collect(Collectors.toSet());
-        Set<Book> books = ticketBook.getBooks().stream().map(bookDTO -> mapper.map(bookDTO,Book.class)).collect(Collectors.toSet());
+        Set<Book> books = ticketBook.getBooks();
         double totalPay=0;
         for (Book b: returnBooks){
             Book book = bookRepositoty.findById(b.getId()).orElse(null);
